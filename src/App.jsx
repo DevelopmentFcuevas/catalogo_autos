@@ -15,7 +15,13 @@ function App() {
   //const [autos, setAutos] = useState(autosData); // Estado para la lista de autos a mostrar
   
   const [searchTerm, setSearchTerm] = useState(''); // Estado para el término de búsqueda
+  const [filterType, setFilterType] = useState('Todos'); // Estado para el filtro por tipo
+  const [filterYear, setFilterYear] = useState('Todos'); // Estado para el filtro por año
   const [filteredAutos, setFilteredAutos] = useState(autosData); // Estado para los autos filtrados
+
+  // Obtener años y tipos únicos para los filtros
+  const uniqueYears = ['Todos', ...new Set(autosData.map(auto => auto.anho).sort((a, b) => b - a))];
+  const uniqueTypes = ['Todos', ...new Set(autosData.map(auto => auto.tipo))];
 
   useEffect(() => {
     let currentAutos = autosData;
@@ -29,17 +35,17 @@ function App() {
     }
 
     // Aplicar filtro por tipo de vehículo
-    /* if (filterType !== 'Todos') {
+    if (filterType !== 'Todos') {
       currentAutos = currentAutos.filter(auto => auto.tipo === filterType);
-    } */
+    }
 
     // Aplicar filtro por año
-    /* if (filterYear !== 'Todos') {
-      currentAutos = currentAutos.filter(auto => auto.año.toString() === filterYear);
-    } */
+    if (filterYear !== 'Todos') {
+      currentAutos = currentAutos.filter(auto => auto.anho.toString() === filterYear);
+    }
 
     setFilteredAutos(currentAutos);
-  }, [searchTerm/* , filterType, filterYear */]); // Dependencias: se ejecuta cuando cambian estos estados
+  }, [searchTerm, filterType, filterYear]); // Dependencias: se ejecuta cuando cambian estos estados
 
 
   return (
@@ -54,6 +60,27 @@ function App() {
           onChange={(e) => setSearchTerm(e.target.value)}
           className="search-input"
         />
+
+        <select
+          value={filterType}
+          onChange={(e) => setFilterType(e.target.value)}
+          className="filter-select"
+        >
+          {uniqueTypes.map(type => (
+            <option key={type} value={type}>{type}</option>
+          ))}
+        </select>
+
+        <select
+          value={filterYear}
+          onChange={(e) => setFilterYear(e.target.value)}
+          className="filter-select"
+        >
+          {uniqueYears.map(year => (
+            <option key={year} value={year}>{year}</option>
+          ))}
+        </select>
+
       </div>
 
       {/* <CatalogoAutos autos={autos} /> */}
