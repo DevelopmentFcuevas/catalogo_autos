@@ -59,3 +59,32 @@ h1 {
   font-size: 0.9em;
   color: #555;
 }
+
+.sortear-button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.sortear-button:hover {
+  background-color: #0056b3;
+}
+
+.auto-sorteado-container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 2px solid #007BFF;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #f0f8ff; /* Color de fondo claro */
+}
+
+.auto-sorteado-container h2 {
+  color: #0056b3;
+  margin-top: 0;
+}

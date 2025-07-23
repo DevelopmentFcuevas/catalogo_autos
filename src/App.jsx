@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './App.css'
 import autosData from './autos'
 import CatalogoAutos from './CatalogoAutos'
+import AutoCard from './AutoCard';
 
 function App() {
   /*
@@ -15,9 +16,14 @@ function App() {
   //const [autos, setAutos] = useState(autosData); // Estado para la lista de autos a mostrar
   
   const [searchTerm, setSearchTerm] = useState(''); // Estado para el término de búsqueda
+  
   const [filterType, setFilterType] = useState('Todos'); // Estado para el filtro por tipo
   const [filterYear, setFilterYear] = useState('Todos'); // Estado para el filtro por año
+  
   const [filteredAutos, setFilteredAutos] = useState(autosData); // Estado para los autos filtrados
+
+  const [autoSorteado, setAutoSorteado] = useState(null); // Nuevo estado para el auto sorteado
+
 
   // Obtener años y tipos únicos para los filtros
   const uniqueYears = ['Todos', ...new Set(autosData.map(auto => auto.anho).sort((a, b) => b - a))];
@@ -45,14 +51,24 @@ function App() {
     }
 
     setFilteredAutos(currentAutos);
-  }, [searchTerm, filterType, filterYear]); // Dependencias: se ejecuta cuando cambian estos estados
+  }, [searchTerm, 
+      filterType, 
+      filterYear
+    ]); // Dependencias: se ejecuta cuando cambian estos estados
 
+  // NUEVA FUNCIÓN PARA EL SORTEO
+  const sortearAuto = () => {
+    const indiceAleatorio = Math.floor(Math.random() * autosData.length);
+    const autoSeleccionado = autosData[indiceAleatorio];
+    setAutoSorteado(autoSeleccionado);
+  };
 
   return (
     <div className="App">
       <h1>Catálogo de Autos</h1>
 
       <div className="controles-filtro">
+        
         <input
           type="text"
           placeholder="Buscar por marca o modelo"
@@ -81,7 +97,18 @@ function App() {
           ))}
         </select>
 
+        {/* BOTÓN PARA SORTEAR */}
+        <button onClick={sortearAuto} className="sortear-button">Sortear Auto</button>
+
       </div>
+
+      {/* SECCIÓN PARA MOSTRAR EL AUTO SORTEADO */}
+      {autoSorteado && (
+        <div className="auto-sorteado-container">
+          <h2>Auto Destacado</h2>
+          <AutoCard auto={autoSorteado} />
+        </div>
+      )}
 
       {/* <CatalogoAutos autos={autos} /> */}
       <CatalogoAutos autos={filteredAutos} />

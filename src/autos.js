@@ -9,7 +9,8 @@ const autos = [
     modelo: "Hilux",
     anho: 2021,
     tipo: "Pickup",
-    precio: 30000
+    precio: 30000,
+    imagenNombre: "hilux.jpg"
 },
 {
     id: 2,
@@ -17,7 +18,8 @@ const autos = [
     modelo: "Onix",
     anho: 2022,
     tipo: "Sedán",
-    precio: 18000
+    precio: 18000,
+    imagenNombre: "onix.jpg"
 },
 {
     id: 3,
@@ -25,7 +27,8 @@ const autos = [
     modelo: "EcoSport",
     anho: 2020,
     tipo: "SUV",
-    precio: 22000
+    precio: 22000,
+    imagenNombre: "ecosport.jpg"
 },
 {
     id: 4,
@@ -33,7 +36,8 @@ const autos = [
     modelo: "Amarok",
     anho: 2023,
     tipo: "Pickup",
-    precio: 35000
+    precio: 35000,
+    imagenNombre: "amarok.jpg"
 },
 {
     id: 5,
@@ -41,7 +45,8 @@ const autos = [
     modelo: "Creta",
     anho: 2021,
     tipo: "SUV",
-    precio: 25000
+    precio: 25000,
+    imagenNombre: "creta.jpg"
 },
 {
     id: 6,
@@ -49,7 +54,8 @@ const autos = [
     modelo: "Versa",
     anho: 2022,
     tipo: "Sedán",
-    precio: 19500
+    precio: 19500,
+    imagenNombre: "versa.jpg"
 },
 {
     id: 7,
@@ -57,7 +63,8 @@ const autos = [
     modelo: "Duster",
     anho: 2020,
     tipo: "SUV",
-    precio: 21000
+    precio: 21000,
+    imagenNombre: "duster.jpg"
 },
 {
     id: 8,
@@ -65,7 +72,8 @@ const autos = [
     modelo: "Civic",
     anho: 2023,
     tipo: "Sedán",
-    precio: 28000
+    precio: 28000,
+    imagenNombre: "civic.jpg"
 },
 {
     id: 9,
@@ -73,7 +81,8 @@ const autos = [
     modelo: "Strada",
     anho: 2021,
     tipo: "Pickup",
-    precio: 20000
+    precio: 20000,
+    imagenNombre: "strada.jpg"
 },
 {
     id: 10,
@@ -81,7 +90,8 @@ const autos = [
     modelo: "Sportage",
     anho: 2022,
     tipo: "SUV",
-    precio: 29000
+    precio: 29000,
+    imagenNombre: "sportage.jpg"
 },
 ];
 
